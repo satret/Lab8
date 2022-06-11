@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.client.Controllers.LoginController">
+    <top>
+        <ChoiceBox fx:id="languageChoiceBox" onAction="#changeLanguage" prefWidth="150.0" value="Русский" BorderPane.alignment="CENTER">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Русский" />
+                    <String fx:value="Türk" />
+                    <String fx:value="Dansk" />
+                    <String fx:value="Español" />
+                </FXCollections>
+            </items>
+            <BorderPane.margin>
+                <Insets bottom="10.0" top="10.0" />
+            </BorderPane.margin>
+        </ChoiceBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" fillWidth="false" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="accountName" text="Имя аккаунта">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+                <TextField fx:id="loginField" />
+                <Label fx:id="passwordLabel" text="Пароль">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+                <PasswordField fx:id="passwordField" />
+                <HBox alignment="CENTER">
+                    <Button fx:id="cancelButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#backClick" prefHeight="26.0" prefWidth="65.0" text="Отмена">
+                  <HBox.margin>
+                     <Insets right="5.0" top="5.0" />
+                  </HBox.margin></Button>
+                    <Button fx:id="loginButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#loginClick" prefHeight="27.0" prefWidth="64.0" text="Войти">
+                  <HBox.margin>
+                     <Insets left="5.0" top="5.0" />
+                  </HBox.margin></Button>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets top="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </center>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</BorderPane>

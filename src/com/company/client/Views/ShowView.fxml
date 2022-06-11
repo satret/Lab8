@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.client.Controllers.ShowController">
+    <top>
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="accountNameLabel" text="accountName">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin></Label>
+                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" text="Выход">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                </Button>
+                <ChoiceBox fx:id="languageChoiceBox" onAction="#changeLanguage" prefWidth="150.0" value="Русский" BorderPane.alignment="CENTER">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Русский" />
+                            <String fx:value="Türk" />
+                            <String fx:value="Dansk" />
+                            <String fx:value="Español" />
+                        </FXCollections>
+                    </items>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </BorderPane.margin>
+                    <HBox.margin>
+                        <Insets left="80.0" />
+                    </HBox.margin>
+                </ChoiceBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" top="5.0" />
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="1350.0" tableMenuButtonVisible="true">
+                <columns>
+                    <TableColumn fx:id="ownerColumn" text="Владелец">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="owner" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="idColumn" prefWidth="35.0" text="#">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="dateColumn" prefWidth="100.0" text="Дата">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="date" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="nameColumn" prefWidth="100.0" text="Название">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="name" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="coordinateXColumn" prefWidth="90.0" text="Координата X">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="coordinateX" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="coordinateYColumn" prefWidth="91.0" text="Координата Y">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="coordinateY" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="fromXColumn" prefWidth="59.0" text="Откуда X">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="fromX" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="fromYColumn" text="Откуда Y">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="fromY" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="fromNameColumn" prefWidth="70.0" text="Название откуда">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="fromName" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="toXColumn" text="Куда X">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="toX" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="toYColumn" text="Куда Y">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="toY" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="toNameColumn" prefWidth="70.0" text="Название куда">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="toName" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn fx:id="distanceColumn" text="Дистанция">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="distance" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <BorderPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </BorderPane.margin>
+        </ScrollPane>
+    </center>
+    <bottom>
+        <VBox>
+            <HBox alignment="CENTER">
+
+                <Button mnemonicParsing="false" onAction="#dropClick" text="Сброс" fx:id="dropButton">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                </Button>
+
+                <Button mnemonicParsing="false" onAction="#startsWithClick" text="Начинается с" fx:id="startsWithButton">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                </Button>
+
+                <Button mnemonicParsing="false" onAction="#removeLessThenKeyClick" text="ID &lt;">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                </Button>
+
+                <Button mnemonicParsing="false" onAction="#distanceGreaterThenClick" text="Distance &gt;">
+                   <HBox.margin>
+                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                   </HBox.margin>
+                </Button>
+
+                <TextField fx:id="commonField" prefHeight="25.0" prefWidth="71.0">
+                   <HBox.margin>
+                      <Insets bottom="5.0" left="5.0" right="15.0" top="5.0" />
+                   </HBox.margin>
+                </TextField>
+
+                <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="3.0">
+                   <opaqueInsets>
+                      <Insets left="5.0" right="5.0" />
+                   </opaqueInsets>
+                </Separator>
+
+                <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearButtonClick" text="Очистить" BorderPane.alignment="CENTER_LEFT">
+                   <HBox.margin>
+                      <Insets bottom="5.0" left="15.0" right="5.0" top="5.0" />
+                   </HBox.margin>
+                </Button>
+                <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonClick" text="Добавить" BorderPane.alignment="CENTER_LEFT">
+                   <HBox.margin>
+                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                   </HBox.margin>
+                </Button>
+            </HBox>
+            <HBox>
+                <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonClick" text="Назад" BorderPane.alignment="CENTER_LEFT">
+                   <HBox.margin>
+                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                   </HBox.margin>
+                </Button>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
