@@ -1,4 +1,4 @@
-package resources;
+package com.company.common.resources;
 
 import java.util.ListResourceBundle;
 
